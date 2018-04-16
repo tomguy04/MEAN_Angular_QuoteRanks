@@ -1,0 +1,40 @@
+<p>
+  add-quote works!
+</p>
+<form name = 'quoter' (submit)="onSubmit()" #form='ngForm'>
+  
+      Quote : 
+       <input 
+         type="text"
+         name="content"
+         required
+         minlength="4"
+         [(ngModel)]="quote.content"
+         #content='ngModel'
+       />
+       
+       <div class = 'side'*ngIf='content.touched && content.invalid'>Quote Content is Required and must be at least 4 long</div><br>
+       
+       Author :
+       <input 
+         type="text" 
+         name="author" 
+         minlength="1"
+         required 
+         [(ngModel)]="quote.author"
+         #author='ngModel'
+       />
+       <div class = 'side' *ngIf='author.touched && author.invalid'>Author is required and must be at least 1 long</div><BR>
+
+   <!-- <button type="submit" (click)='triggerEvent($event)' [disabled]="form.invalid">Submit</button> -->
+   <button type="submit"  [disabled]="form.invalid">Submit</button>
+   
+       
+   </form>
+   {{quotes|json}}
+   <!-- <app-get-quotes[quotes]='quotes'></app-get-quotes> -->
+   <!-- <p *ngFor='let data of quotes'>
+       {{data.content}} 
+       {{data.author}}
+       
+   </p> -->
