@@ -1,5 +1,7 @@
 <!-- <app-add-quote></app-add-quote> -->
-<app-add-quote [theQuotes]='quotes' (aTaskEventEmitter)="dataFromChild($event)"></app-add-quote>
-<br>Quotes pass back {{theQuotes | json}}
-<app-get-quotes [quotes]='quotes'></app-get-quotes>
+<!-- listen for event -->
+<app-add-quote (aTaskEventEmitter)="dataFromChild($event)"></app-add-quote> 
+<br>EventData : {{eventData|json}}
+<!-- pass array to child -->
+<app-get-quotes [quotes]='quoteArray'></app-get-quotes>
 <!-- <app-get-quotes (aTaskEventEmitter)="dataFromChild($event)"> </app-get-quotes> -->

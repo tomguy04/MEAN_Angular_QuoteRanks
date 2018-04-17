@@ -7,20 +7,14 @@ import { Quotes} from './classQuote';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @Output() quotes:Quotes;
-  // quote = new Quotes();
-  // quoteArray : Array<Quotes> = [];
+  quoteArray : Array<Quotes> = [];
+  eventData : Quotes;
 
-  // onSumbit(){
-  //   console.log (`the quote ${this.quote}`);
-  //   this.quoteArray.push(this.quote);
-  //   this.quote = new Quotes();
-  //   console.log(`the quote array ${this.quoteArray}`);
-    
-  // }
   constructor(){}
-  dataFromChild(eventData){
+  dataFromChild(eventData:Quotes){  //expect a Quotes class type
     console.log(`from the emit ${eventData}`);
+    this.eventData = eventData;
+    this.quoteArray.push(eventData);
   }
 
 }
